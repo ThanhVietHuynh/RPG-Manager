@@ -1,5 +1,8 @@
 <?php
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\InvitationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('users', UserController::class);
+Route::resource('characters', CharacterController::class);
+Route::resource('groups', GroupController::class);
+Route::resource('invitations', InvitationController::class);
