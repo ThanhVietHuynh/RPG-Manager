@@ -14,4 +14,17 @@ class Group extends Model
         'numberOfPlace',
         'author_id',
     ];
+    public function user()
+    { 
+        return $this->belongsTo(User::class); 
+    }
+    public function characters() 
+    { 
+        return $this->hasMany(Character::class); 
+    }
+    public function invitations() 
+    { 
+        return $this->hasMany(Invitation::class); 
+    }
+
 }

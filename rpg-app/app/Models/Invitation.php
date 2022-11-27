@@ -13,4 +13,16 @@ class Invitation extends Model
         'guest_id',
         'crew_id',
     ];
+    public function user()
+    { 
+        return $this->belongsTo(User::class); 
+    }
+    public function character()
+    { 
+        return $this->belongsTo(Character::class); 
+    }
+    public function group()
+    { 
+        return $this->belongsTo(Group::class); 
+    }
 }
