@@ -1,5 +1,4 @@
 <?php
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\GroupController;
@@ -22,9 +21,3 @@ Route::resource('groups', GroupController::class);
 Route::resource('invitations', InvitationController::class);
 
 
-// Route::get('login', [AuthController::class, 'index'])->name('login');
-// Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
-// Route::get('registration', [AuthController::class, 'registration'])->name('register');
-// Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
-// Route::get('dashboard', [AuthController::class, 'dashboard']); 
-// Route::get('logout', [AuthController::class, 'logout'])->name('logout');
