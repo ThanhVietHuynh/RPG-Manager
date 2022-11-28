@@ -46,14 +46,14 @@ class User extends Authenticatable
 
     public function characters() 
     { 
-        return $this->hasMany(Character::class); 
+        return $this->hasMany(Character::class,'user_id'); 
     }
     public function groups() 
     { 
-        return $this->hasMany(Group::class); 
+        return $this->hasMany(Group::class,'author_id'); 
     }
     public function invitations() 
     { 
-        return $this->hasMany(Invitation::class); 
+        return $this->hasMany(Invitation::class,'host_id'); 
     }
 }

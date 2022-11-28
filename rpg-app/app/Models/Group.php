@@ -9,9 +9,9 @@ class Group extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'groupName',
-        'groupDescription',
-        'numberOfPlace',
+        'group_name',
+        'group_description',
+        'number_place',
         'author_id',
     ];
     public function user()
@@ -20,11 +20,11 @@ class Group extends Model
     }
     public function characters() 
     { 
-        return $this->hasMany(Character::class); 
+        return $this->hasMany(Character::class,'group_id'); 
     }
     public function invitations() 
     { 
-        return $this->hasMany(Invitation::class); 
+        return $this->hasMany(Invitation::class,'crew_id'); 
     }
 
 }

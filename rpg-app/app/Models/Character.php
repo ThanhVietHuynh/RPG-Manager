@@ -9,15 +9,16 @@ class Character extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'characterName',
-        'description',
+        'character_name',
+        'character_description',
         'speciality',
         'mag',
         'for',
         'agi',
         'int',
         'pv',
-        'user_id'
+        'user_id',
+        'group_id',
     ];
     public function user()
     { 
@@ -29,6 +30,6 @@ class Character extends Model
     }
     public function invitations() 
     { 
-        return $this->hasMany(Invitation::class); 
+        return $this->hasMany(Invitation::class,'guest_id'); 
     }
 }
