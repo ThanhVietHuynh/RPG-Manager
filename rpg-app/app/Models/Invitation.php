@@ -15,14 +15,14 @@ class Invitation extends Model
     ];
     public function user()
     { 
-        return $this->belongsTo(User::class); 
+        return $this->belongsTo(User::class,'host_id','id'); 
     }
     public function character()
     { 
-        return $this->belongsTo(Character::class); 
+        return $this->belongsTo(Character::class,'guest_id','id'); 
     }
     public function group()
     { 
-        return $this->belongsTo(Group::class); 
+        return $this->belongsTo(Group::class,'crew_id','id'); 
     }
 }

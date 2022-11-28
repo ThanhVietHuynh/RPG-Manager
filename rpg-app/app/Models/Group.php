@@ -16,15 +16,15 @@ class Group extends Model
     ];
     public function user()
     { 
-        return $this->belongsTo(User::class); 
+        return $this->belongsTo(User::class,'author_id','id'); 
     }
     public function characters() 
     { 
-        return $this->hasMany(Character::class,'group_id'); 
+        return $this->hasMany(Character::class,'group_id','id'); 
     }
     public function invitations() 
     { 
-        return $this->hasMany(Invitation::class,'crew_id'); 
+        return $this->hasMany(Invitation::class,'crew_id','id'); 
     }
 
 }

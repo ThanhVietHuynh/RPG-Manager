@@ -22,14 +22,14 @@ class Character extends Model
     ];
     public function user()
     { 
-        return $this->belongsTo(User::class); 
+        return $this->belongsTo(User::class,'user_id','id'); 
     }
     public function group()
     { 
-        return $this->belongsTo(Group::class); 
+        return $this->belongsTo(Group::class,'group_id','id'); 
     }
     public function invitations() 
     { 
-        return $this->hasMany(Invitation::class,'guest_id'); 
+        return $this->hasMany(Invitation::class,'guest_id','id'); 
     }
 }

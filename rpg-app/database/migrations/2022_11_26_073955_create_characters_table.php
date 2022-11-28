@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
             $table->string('character_name');
-            $table->string('character_description');
+            $table->text('character_description');
             $table->string('speciality');
             $table->integer('mag');
             $table->integer('for');
@@ -24,10 +24,14 @@ return new class extends Migration
             $table->integer('int');
             $table->integer('pv');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('group_id');
-            $table->foreign('group_id')->references('id')->on('groups');
             $table->timestamps();
+        });
+
+        Schema::table('characters', function($table)
+        {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('group_id')->references('id')->on('groups');
         });
     }
 

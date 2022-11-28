@@ -16,13 +16,18 @@ return new class extends Migration
         Schema::create('invitations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('host_id');
-            $table->foreign('host_id')->references('id')->on('users');
             $table->unsignedBigInteger('guest_id');
-            $table->foreign('guest_id')->references('id')->on('characters');
             $table->unsignedBigInteger('crew_id');
-            $table->foreign('crew_id')->references('id')->on('groups');
             $table->timestamps();
         });
+
+        Schema::table('invitations', function($table)
+        {
+            $table->foreign('host_id')->references('id')->on('users');
+            $table->foreign('guest_id')->references('id')->on('characters');
+            $table->foreign('crew_id')->references('id')->on('groups');
+        });
+
     }
 
     /**
