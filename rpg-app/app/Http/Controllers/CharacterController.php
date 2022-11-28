@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Character;
 use Illuminate\Http\Request;
 
 class CharacterController extends Controller
@@ -13,7 +14,8 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        //
+        $characters = Character::all();
+        return view('charactere.index', compact('characteres'));
     }
 
     /**
@@ -23,7 +25,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        //
+        return view('character.create');
     }
 
     /**
@@ -34,7 +36,20 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate= $request->validate([
+            'character_name'=>['required'],
+            'character_description'=>'required',
+            'speciality'=>'required',
+        ]);
+
+        $character = new Character([
+            'character_name' => $request->get('character_name'),
+            'character_description' => $request->get('character_description'),
+            'speciality' => $request->get('speciality'),
+        ]);
+
+            $character->save();
+            return redirect('/')->with('success', 'Personnage ajouté avec succès');
     }
 
     /**
@@ -45,7 +60,8 @@ class CharacterController extends Controller
      */
     public function show($id)
     {
-        //
+        $character = Character::findOrFail($id);
+        return view('personnage.show', compact('personnage'));
     }
 
     /**
@@ -56,7 +72,9 @@ class CharacterController extends Controller
      */
     public function edit($id)
     {
-        //
+        $character = character::findOrFail($id);
+
+        return view('character.edit', compact('character'));
     }
 
     /**
@@ -68,7 +86,23 @@ class CharacterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $request->validate([
+
+            'character_name'=>'required',
+            'character_description'=> 'required',
+            'speciality' => 'required',
+
+        ]);
+
+        $character = Character::findOrFail($id);
+        $character->charactereName = $request->get('character_name');
+        $character->charactereDescription = $request->get('character_description');
+        $character->speciality = $request->get('speciality');
+
+        $character->update();
+
+        return redirect('/')->with('success', 'Le personnage a été modifié avec succès');
     }
 
     /**
@@ -79,6 +113,8 @@ class CharacterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $character = Character::findOrFail($id);
+        $character->delete();
+        return redirect('/')->with('success', 'Personnage Modifié avec succès');
     }
 }
