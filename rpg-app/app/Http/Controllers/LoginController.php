@@ -28,7 +28,7 @@ class LoginController extends Controller
             'lastname'  => 'required',
             'pseudo'    => 'required|unique:users',
             'email'     => 'required|email|unique:users',
-            'password'  => ['required','regex:^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[\W])(?=\S*[\d])\S*$']
+            'password'  => 'required|max:8'
         ]);
 
         $data = $request->all();
@@ -55,7 +55,7 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials))
         {
-            return redirect('dashboard');
+            return redirect('login')->with('success', 'Vous êtes connecté');
         }
 
         return redirect('login')->with('success', 'Le mot de passe ou l\'email n\'est pas valide');
@@ -65,7 +65,7 @@ class LoginController extends Controller
     {
         if(Auth::check())
         {
-            return view('dashboard');
+            return redirect('registration')->with('success', 'Inscription réussie');
         }
 
         return redirect('login')->with('success', 'you are not allowed to access');
