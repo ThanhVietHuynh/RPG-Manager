@@ -22,6 +22,9 @@
                     <a class="nav-link active" aria-current="page" href="{{ route('/') }}">Accueil</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="{{ route('characters.create') }}">Créer un personnage</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}">Déconnexion</a>
                   </li>
                 </ul>

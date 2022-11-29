@@ -30,7 +30,7 @@
 						@endif
 					</div>
 					<div class="d-grid mx-auto">
-						<button type="subit" class="btn btn-dark btn-block">Connexion</button>
+						<button type="submit" class="btn btn-dark btn-block">Connexion</button>
 					</div>
 				</form>
 			</div>
