@@ -64,7 +64,7 @@ class CharacterController extends Controller
         ]);
 
             $character->save();
-            return redirect('/')->with('success', 'Personnage ajouté avec succès');
+            return redirect('characters.store')->with('success', 'Personnage ajouté avec succès');
     }
 
     /**
@@ -117,7 +117,7 @@ class CharacterController extends Controller
 
         $character->update();
 
-        return redirect('/')->with('success', 'Le personnage a été modifié avec succès');
+        return redirect('characters.update')->with('success', 'Le personnage a été modifié avec succès');
     }
 
     /**
@@ -130,6 +130,6 @@ class CharacterController extends Controller
     {
         $character = Character::findOrFail($id);
         $character->delete();
-        return redirect('/')->with('success', 'Personnage supprimé avec succès');
+        return redirect('characters.destroy')->with('success', 'Personnage supprimé avec succès');
     }
 }
