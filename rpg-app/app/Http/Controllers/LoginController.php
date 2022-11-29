@@ -68,7 +68,7 @@ class LoginController extends Controller
             return redirect('registration')->with('success', 'Inscription réussie');
         }
 
-        return redirect('login')->with('success', 'you are not allowed to access');
+        return redirect('login')->with('success', 'Votre Inscription a échoué');
     }
 
     function logout()
