@@ -59,7 +59,6 @@ class CharacterController extends Controller
             'character_name' => $request->get('character_name'),
             'character_description' => $request->get('character_description'),
             'speciality' => $request->get('speciality'),
-            'mag'=> $magie ->get('mag')
    
         ]);
 
