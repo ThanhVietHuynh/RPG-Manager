@@ -15,7 +15,7 @@ class CharacterController extends Controller
     public function index()
     {
         $characters = Character::all();
-        return view('charactere.index', compact('characteres'));
+        return view('characters.index', compact('characters'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        return view('character.create');
+        return view('characters.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
-        $validate= $request->validate([
+        $request->validate([
             'character_name'=>['required'],
             'character_description'=>'required',
             'speciality'=>'required',
