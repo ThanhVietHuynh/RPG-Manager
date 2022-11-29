@@ -28,7 +28,7 @@ class LoginController extends Controller
             'lastname'  => 'required',
             'pseudo'    => 'required|unique:users',
             'email'     => 'required|email|unique:users',
-            'password'  => ['required','regex:^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[\W])(?=\S*[\d])\S*$']
+            'password'  => ['required']
         ]);
 
         $data = $request->all();
