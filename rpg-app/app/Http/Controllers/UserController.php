@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,7 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -23,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-       
+        return view('users.create');
     }
 
     /**
@@ -34,7 +35,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-     
+        $validate= $request->validate([
+            'lastname'=>['required'],
+            'firstname'=>'required',
+            'pseudo'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+        ]);
+        
+
+        $user = new User([
+            'lastname' => $request->get('lastname'),
+            'firstname' => $request->get('firstname'),
+            'pseudo' => $request->get('pseudo'),
+            'email' => $request->get('email'),
+            'password' => $request->get('password'),
+        ]);
+
+            $user->save();
+            return redirect('/')->with('success', 'Votre compte a été créé');
     }
 
     /**
@@ -45,7 +64,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -56,7 +76,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = user::findOrFail($id);
+
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -68,7 +90,26 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+
+            'lastname'=>'required',
+            'firstname'=> 'required',
+            'pseudo' => $request->get('pseudo'),
+            'email' => $request->get('email'),
+            'password' => $request->get('password'),
+
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->lastname = $request->get('lastname');
+        $user->firstname = $request->get('firstname');
+        $user->pseudo = $request->get('pseudo');
+        $user->email = $request->get('email');
+        $user->password = $request->get('password');
+
+        $user->update();
+
+        return redirect('/')->with('success', 'Votre compte a été modifié avec succès');
     }
 
     /**
@@ -79,6 +120,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect('/')->with('success', 'Votre compte a été supprimé avec succès');
     }
 }

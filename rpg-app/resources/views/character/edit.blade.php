@@ -3,27 +3,33 @@
 
 @section('content')
 
-    <h1>Ajouter un personnage</h1>
 
+    <h1>Modifier Personnage</h1>
 
-    <form action="{{route('characters.store')}}" method="POST">
+    <form method="post" action="{{ url('character/'. $character->id) }}" >
+        @method('PATCH')
         @csrf
 
+
         <div>
-            <label for="character_name">Nom du personnage :</label>
-            <input type="text" id="character_name" 
-            placeholder="Entrez un nom" name="character_name"/>
+
+            <label for="character_name">Nom du personnage:</label>
+            <input type="text" class="form-control" id="character_name" 
+            placeholder="Entrer Nom" name="character_name" value="{{ $character->characterName }}">
+
         </div>
 
         <div>
 
-            <label for="character_description">Description du personnage:</label>
+            <label for="character_description">Description:</label>
             <input type="text" id="character_description" 
-            placeholder="Entrez une description" name="character_description"/>
+            placeholder="Entrer une description" name="character_description"
+             value="{{ $character->characterDescription }}">
 
         </div>
 
         <div>
+
             <label for="speciality">Type:</label>
             <select name="speciality" id="speciality">
                 <option value="Guerrier">Guerrier</option>
@@ -33,9 +39,11 @@
                 <option value="Berseker">Berseker</option>
                 <option value="Archer">Archer</option>
             </select>
+
         </div>
 
-        <button type="submit">Créer mon personnage</button>
+
+        <button type="submit">Enregistrer</button>
 
     </form>
 

@@ -41,6 +41,7 @@ class CharacterController extends Controller
             'character_description'=>'required',
             'speciality'=>'required',
         ]);
+        
 
         $character = new Character([
             'character_name' => $request->get('character_name'),
@@ -61,7 +62,7 @@ class CharacterController extends Controller
     public function show($id)
     {
         $character = Character::findOrFail($id);
-        return view('personnage.show', compact('personnage'));
+        return view('characters.show', compact('character'));
     }
 
     /**
@@ -115,6 +116,6 @@ class CharacterController extends Controller
     {
         $character = Character::findOrFail($id);
         $character->delete();
-        return redirect('/')->with('success', 'Personnage Modifié avec succès');
+        return redirect('/')->with('success', 'Personnage supprimé avec succès');
     }
 }
