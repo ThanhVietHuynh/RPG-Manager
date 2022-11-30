@@ -35,6 +35,8 @@
             </select>
         </div>
 
+        <button onclick="myFunction()">Changer de statistique</button>
+
         <button type="submit">Créer mon personnage</button>
 
     </form>
