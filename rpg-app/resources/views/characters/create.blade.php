@@ -5,7 +5,7 @@
     <h1>Ajouter un personnage</h1>
 
 
-    <form action="{{route('characters.store')}}" method="POST">
+    <form action="{{route('characters.show')}}" method="POST">
         @csrf
 
         <div>
@@ -34,9 +34,6 @@
             </select>
         </div>
 
-        <button onclick="myFunction()">Changer de statistique</button>
-
-        
         <div>
             <label for="mag">Magie :</label>
             <input type="number" readonly value={{$mag}} class="reandonly" name="mag"/>
@@ -58,14 +55,8 @@
             <input type="number" readonly value={{$pv}} class="reandonly" id="pv" name="pv"/>
         </div>
         <button type="submit">Créer mon personnage</button>
-
+        
     </form>
-
+    <button onclick="myFunction()">Changer de statistique</button>
+    
 @endsection
-
-
-<style>
-    .reandonly{
-        border: none
-    }
-</style>

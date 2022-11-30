@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Character;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CharacterController extends Controller
 {
@@ -63,12 +64,11 @@ class CharacterController extends Controller
             'agi' => $request->get('agi'),
             'int' => $request->get('int'),
             'pv' => $request->get('pv'),
-            'user_id'=>$request->get('user_id')
-   
+            'user_id'=>Auth::user()->id,
         ]);
 
             $character->save();
-            return redirect('characters.store')->with('success', 'Personnage ajouté avec succès');
+            return redirect('characters.show')->with('success', 'Personnage ajouté avec succès');
     }
 
     /**
