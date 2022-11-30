@@ -2,28 +2,31 @@
 
 
 @section('content')
+ 
+@foreach ($charactersList as $item)
+    
+<table class="table table-bordered">
 
-    <table class="table table-bordered">
+    <tr>
+        <th>Nom du personnage:</th>
+        <td>{{ $item['character_name'] }}</td>
+    </tr>
 
-        <tr>
-            <th>Nom du personnage:</th>
-            <td>{{ $character->characterName }}</td>
-        </tr>
+    <tr>
 
-        <tr>
+        <th>Description:</th>
+        <td>{{ $item['character_description'] }}</td>
 
-            <th>Description:</th>
-            <td>{{ $character->characterDescription }}</td>
+    </tr>
 
-        </tr>
+    <tr>
 
-        <tr>
+        <th>Type</th>
+        <td>{{ $item['speciality'] }}</td>
 
-            <th>Type</th>
-            <td>{{ $character->speciality }}</td>
+    </tr>
 
-        </tr>
-
-    </table>
+</table>
+@endforeach
 
 @endsection
