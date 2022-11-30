@@ -31,6 +31,7 @@ class CharacterController extends Controller
         $agilite = mt_rand(0, 14);
         $intelligence = mt_rand(0, 14);
         $pv = mt_rand(20, 50);
+        
      return view('characters.create',['mag'=>$magie,'for'=>$force,'agi'=>$agilite,'int'=>$intelligence,'pv'=>$pv]);
     }
 
@@ -68,7 +69,8 @@ class CharacterController extends Controller
         ]);
 
             $character->save();
-            return redirect('characters.show')->with('success', 'Personnage ajouté avec succès');
+            return redirect('characters/show')->with('success', 'Personnage ajouté avec succès');
+            
     }
 
     /**
@@ -79,8 +81,8 @@ class CharacterController extends Controller
      */
     public function show($id)
     {
-        $character = Character::findOrFail($id);
-        return view('characters.show', compact('character'));
+        $character = Character::where('user_id',Auth::user()->id)->get();
+        return view('characters.show', ['charactersList'=>$character]);
     }
 
     /**

@@ -5,7 +5,7 @@
     <h1>Ajouter un personnage</h1>
 
 
-    <form action="{{route('characters.show')}}" method="POST">
+    <form action="{{route('characters.store')}}" method="POST">
         @csrf
 
         <div>
