@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
 
     <h1>Ajouter un personnage</h1>
@@ -37,6 +36,27 @@
 
         <button onclick="myFunction()">Changer de statistique</button>
 
+        
+        <div>
+            <label for="mag">Magie :</label>
+            <input type="number" readonly value="" id="mag" name="mag"/>
+        </div>
+        <div>
+            <label for="for">Force :</label>
+            <input type="number"readonly value="" id="for" name="for"/>
+        </div>
+        <div>
+            <label for="agi">Agilité :</label>
+            <input type="number" readonly value="" id="agi" name="agi"/>
+        </div>
+        <div>
+            <label for="int">Intelligence :</label>
+            <input type="number" readonly value="" id="int" name="int"/>
+        </div>
+        <div>
+            <label for="pv">PV :</label>
+            <input type="number" readonly value="" id="pv" name="pv"/>
+        </div>
         <button type="submit">Créer mon personnage</button>
 
     </form>

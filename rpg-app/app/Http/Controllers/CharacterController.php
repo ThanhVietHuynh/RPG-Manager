@@ -25,7 +25,13 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        return view('characters.create');
+        
+        $magie = mt_rand(0, 14);
+        $force = mt_rand(0, 14);
+        $agilite = mt_rand(0, 14);
+        $intelligence = mt_rand(0, 14);
+        $pv = mt_rand(20, 50);
+     return view('characters.create',['mag'=>$magie,'for'=>$force,'agi'=>$agilite,'int'=>$intelligence,'pv'=>$pv]);
     }
 
     /**
@@ -36,10 +42,16 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
+       
         $request->validate([
             'character_name'=>['required'],
             'character_description'=>'required',
             'speciality'=>'required',
+            'mag'=>'required|numeric',
+            'for'=>'required|numeric',
+            'agi'=>'required|numeric',
+            'int'=>'required|numeric',
+            'pv'=>'required|numeric',
         ]);
         
 
@@ -47,6 +59,7 @@ class CharacterController extends Controller
             'character_name' => $request->get('character_name'),
             'character_description' => $request->get('character_description'),
             'speciality' => $request->get('speciality'),
+   
         ]);
 
             $character->save();
