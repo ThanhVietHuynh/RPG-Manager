@@ -19,7 +19,8 @@
       <li class="list-group-item">PV: {{ $item['pv'] }}</li>
     </ul>
 
-    <a href="#" class="btn btn-primary">Modifier Personnage</a>
+    <a href="http://127.0.0.1:8000/characters/{{ $item['id'] }}/edit" class="btn btn-primary">Modifier Personnage</a>
+
     
 </div>
 

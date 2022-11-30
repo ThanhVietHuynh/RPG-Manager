@@ -79,7 +79,7 @@ class CharacterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($character)
     {
         $character = Character::where('user_id',Auth::user()->id)->get();
         return view('characters.show', ['charactersList'=>$character]);
@@ -91,11 +91,11 @@ class CharacterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($character)
     {
-        $character = character::findOrFail($id);
+        $character = Character::findOrFail($character);
 
-        return view('character.edit', compact('character'));
+        return view('characters.edit', compact('character'));
     }
 
     /**

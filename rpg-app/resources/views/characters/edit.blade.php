@@ -6,7 +6,7 @@
 
     <h1>Modifier Personnage</h1>
 
-    <form method="post" action="{{ url('character/'. $character->id) }}" >
+    <form method="post" action="{{ url('characters/'. $character->id) }}" >
         @method('PATCH')
         @csrf
 
@@ -15,7 +15,7 @@
 
             <label for="character_name">Nom du personnage:</label>
             <input type="text" class="form-control" id="character_name" 
-            placeholder="Entrer Nom" name="character_name" value="{{ $character->characterName }}">
+            placeholder="Entrer Nom" name="character_name" value="{{ $character->character_name }}">
 
         </div>
 
@@ -24,7 +24,7 @@
             <label for="character_description">Description:</label>
             <input type="text" id="character_description" 
             placeholder="Entrer une description" name="character_description"
-             value="{{ $character->characterDescription }}">
+             value="{{ $character->character_description }}">
 
         </div>
 
@@ -32,6 +32,7 @@
 
             <label for="speciality">Type:</label>
             <select name="speciality" id="speciality">
+                <option selected>{{$character->speciality}}</option>
                 <option value="Guerrier">Guerrier</option>
                 <option value="Mage">Mage</option>
                 <option value="Druide">Druide</option>

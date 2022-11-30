@@ -2,9 +2,6 @@
 
 @section('content')
 
-    <h1>Ajouter un personnage</h1>
-
-
     <form action="{{route('characters.store')}}" method="POST">
         @csrf
 
