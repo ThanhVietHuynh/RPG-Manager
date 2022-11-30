@@ -5,28 +5,24 @@
  
 @foreach ($charactersList as $item)
     
-<table class="table table-bordered">
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ $item['character_name'] }}</h5>
+      <p class="card-text">{{ $item['character_description'] }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Type: {{ $item['speciality'] }}</li>
+      <li class="list-group-item">Magie: {{ $item['mag'] }}</li>
+      <li class="list-group-item">Force: {{ $item['for'] }}</li>
+      <li class="list-group-item">Agilité: {{ $item['int'] }}</li>
+      <li class="list-group-item">Intelligence: {{ $item['int'] }}</li>
+      <li class="list-group-item">PV: {{ $item['pv'] }}</li>
+    </ul>
 
-    <tr>
-        <th>Nom du personnage:</th>
-        <td>{{ $item['character_name'] }}</td>
-    </tr>
+    <a href="#" class="btn btn-primary">Modifier Personnage</a>
+    
+</div>
 
-    <tr>
-
-        <th>Description:</th>
-        <td>{{ $item['character_description'] }}</td>
-
-    </tr>
-
-    <tr>
-
-        <th>Type</th>
-        <td>{{ $item['speciality'] }}</td>
-
-    </tr>
-
-</table>
 @endforeach
 
 @endsection
