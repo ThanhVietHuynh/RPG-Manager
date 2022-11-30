@@ -36,26 +36,33 @@
         
         <div>
             <label for="mag">Magie :</label>
-            <input type="number" readonly value="" id="mag" name="mag"/>
+            <input type="number" readonly value={{$mag}} class="reandonly" name="mag"/>
         </div>
         <div>
             <label for="for">Force :</label>
-            <input type="number"readonly value="" id="for" name="for"/>
+            <input type="number"readonly value={{$for}} class="reandonly" id="for" name="for"/>
         </div>
         <div>
             <label for="agi">Agilité :</label>
-            <input type="number" readonly value="" id="agi" name="agi"/>
+            <input type="number" readonly value={{$agi}} class="reandonly" id="agi" name="agi"/>
         </div>
         <div>
             <label for="int">Intelligence :</label>
-            <input type="number" readonly value="" id="int" name="int"/>
+            <input type="number" readonly value={{$int}} class="reandonly" id="int" name="int"/>
         </div>
         <div>
             <label for="pv">PV :</label>
-            <input type="number" readonly value="" id="pv" name="pv"/>
+            <input type="number" readonly value={{$pv}} class="reandonly" id="pv" name="pv"/>
         </div>
         <button type="submit">Créer mon personnage</button>
 
     </form>
 
 @endsection
+
+
+<style>
+    .reandonly{
+        border: none
+    }
+</style>
