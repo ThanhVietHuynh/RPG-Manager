@@ -25,7 +25,6 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        
         $magie = mt_rand(0, 14);
         $force = mt_rand(0, 14);
         $agilite = mt_rand(0, 14);
@@ -59,7 +58,12 @@ class CharacterController extends Controller
             'character_name' => $request->get('character_name'),
             'character_description' => $request->get('character_description'),
             'speciality' => $request->get('speciality'),
-            'mag'=> $magie ->get('mag')
+            'mag' => $request->get('mag'),
+            'for' => $request->get('for'),
+            'agi' => $request->get('agi'),
+            'int' => $request->get('int'),
+            'pv' => $request->get('pv'),
+            'user_id'=>$request->get('user_id')
    
         ]);
 
