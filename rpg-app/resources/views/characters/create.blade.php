@@ -26,7 +26,6 @@
                 <div class="form-group mb-3">
                     <div>
                         <select class="form-select" aria-label="Default select example" name="speciality" id="speciality">
-                            <option selected>Spéciality</option>
                             <option value="Guerrier">Guerrier</option>
                             <option value="Mage">Mage</option>
                             <option value="Druide">Druide</option>

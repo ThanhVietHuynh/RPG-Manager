@@ -30,6 +30,9 @@
                     <a class="nav-link" href="{{ route('characters.show','character') }}">Mes personnages</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="{{ route('groups.create','group') }}">Créer un groupe</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}">Déconnexion</a>
                   </li>
                 </ul>
