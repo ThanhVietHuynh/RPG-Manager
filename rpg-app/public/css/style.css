@@ -1,5 +1,17 @@
+
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
 .reandonly{
     border: none
+}
+
+.row justify-content-center{
+  margin: 5em;
 }
 
 footer{

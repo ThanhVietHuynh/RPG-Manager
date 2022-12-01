@@ -21,7 +21,11 @@
       
       <a href="{{ route('characters.edit', $item['id']) }}" class="btn btn-primary">Modifier Personnage</a>
       <br>
-      <a href="{{ route('characters.destroy',$item['id']) }}" class="btn btn-danger">Supprimer Personnage</a>
+      <form action="{{ route('characters.destroy',$item['id']) }}" method="POST">
+        @csrf
+        @method('delete')
+        <button type="submit" class="btn btn-danger">Supprimer Personnage</button>
+      </form>
   
   </div>
 

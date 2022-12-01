@@ -45,9 +45,9 @@ class CharacterController extends Controller
     {
        
         $request->validate([
-            'character_name'=>['required'],
-            'character_description'=>'required',
-            'speciality'=>'required',
+            'character_name'=>'required|string',
+            'character_description'=>'required|string',
+            'speciality'=>'required|string',
             'mag'=>'required|numeric',
             'for'=>'required|numeric',
             'agi'=>'required|numeric',
@@ -110,20 +110,31 @@ class CharacterController extends Controller
         
         $request->validate([
 
-            'character_name'=>'required',
-            'character_description'=> 'required',
-            'speciality' => 'required',
+            'character_name'=>'required|string',
+            'character_description'=>'required|string',
+            'speciality'=>'required|string',
+            'mag'=>'required|numeric',
+            'for'=>'required|numeric',
+            'agi'=>'required|numeric',
+            'int'=>'required|numeric',
 
         ]);
 
         $character = Character::findOrFail($id);
-        $character->charactereName = $request->get('character_name');
-        $character->charactereDescription = $request->get('character_description');
+        $character->character_name = $request->get('character_name');
+        $character->character_description = $request->get('character_description');
         $character->speciality = $request->get('speciality');
+        $character->mag = $request->get('mag');
+        $character->for = $request->get('for');
+        $character->agi = $request->get('agi');
+        $character->int = $request->get('int');
+        
+        $character->save();
 
-        $character->update();
 
-        return redirect('characters.update',['character' => $character])->with('success', 'Le personnage a été modifié avec succès');
+
+        return redirect('characters/show');
+
     }
 
     /**
@@ -136,6 +147,8 @@ class CharacterController extends Controller
     {
         $character = Character::findOrFail($id);
         $character->delete();
-        return redirect('characters.destroy',['character'=>$character])->with('success', 'Personnage supprimé avec succès');
+
+        return redirect('characters/show');
+   
     }
 }

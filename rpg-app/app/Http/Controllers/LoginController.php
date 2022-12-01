@@ -24,8 +24,8 @@ class LoginController extends Controller
     function validate_registration(Request $request)
     {
         $request->validate([
-            'firstname' => 'required',
-            'lastname'  => 'required',
+            'firstname' => 'required|string',
+            'lastname'  => 'required|string',
             'pseudo'    => 'required|unique:users',
             'email'     => 'required|email|unique:users',
             'password'  => ['required',Password::min(8)->letters(),Password::min(8)->numbers(),Password::min(8)->symbols()],

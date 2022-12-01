@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="row justify-content-center">
+<div class="row justify-content-center" style="margin: 5em;">
     <div class="col-md-4">
         <div class="card">
         <div class="card-header">Ajouter un personnage</div>
@@ -26,7 +26,6 @@
                 <div class="form-group mb-3">
                     <div>
                         <select class="form-select" aria-label="Default select example" name="speciality" id="speciality">
-                            <option selected>Spéciality</option>
                             <option value="Guerrier">Guerrier</option>
                             <option value="Mage">Mage</option>
                             <option value="Druide">Druide</option>
@@ -38,7 +37,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="stat" name="mag" readonly value={{$mag}}>
+                        <input type="number" class="form-control" id="mag" name="mag" readonly value={{$mag}}>
                         <label for="mag">Magie</label>
                     </div>
                     @if($errors->has('mag'))
@@ -47,7 +46,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="stat" name="for" readonly value={{$for}}>
+                        <input type="number" class="form-control" id="for" name="for" readonly value={{$for}}>
                         <label for="for">Force</label>
                     </div>
                     @if($errors->has('mag'))
@@ -56,7 +55,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="stat" name="agi" readonly value={{$agi}}>
+                        <input type="number" class="form-control" id="agi" name="agi" readonly value={{$agi}}>
                         <label for="agi">Agilité</label>
                     </div>
                     @if($errors->has('mag'))
@@ -65,7 +64,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="stat" name="int" readonly value={{$int}}>
+                        <input type="number" class="form-control" id="int" name="int" readonly value={{$int}}>
                         <label for="int">Intelligence</label>
                     </div>
                     @if($errors->has('mag'))
@@ -74,7 +73,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="stat" name="pv" readonly value={{$pv}}>
+                        <input type="number" class="form-control" id="pv" name="pv" readonly value={{$pv}}>
                         <label for="pv">PV</label>
                     </div>
                     @if($errors->has('mag'))
@@ -84,12 +83,12 @@
                     <button type="submit" class="btn btn-dark btn-block">Valider Personnage</button>
                 </div>
             </form>
+            <button type="button" class="btn btn-outline-info" onclick="changeStat()">Changer de statistique</button>
         </div>
     </div>
 </div>
 
-</form>
-<button id="randomStat">Changer de statistique</button>
+
     
 
 
