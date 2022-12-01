@@ -1,59 +1,29 @@
 @extends('layouts.app')
 
+@section('title','Personnage')
+
 @section('content')
-
-    
-
-    <div class="col-lg-1">
-        <a class="btn-success" href="{{ url('character/create') }}">Ajouter</a>
-    </div>
-
-
  
+@foreach ($character as $item)
+<div class="cardlist">
+  <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ $item['character_name'] }}</h5>
+        <p class="card-text">{{ $item['character_description'] }}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Type: {{ $item['speciality'] }}</li>
+        <li class="list-group-item">Magie: {{ $item['mag'] }}</li>
+        <li class="list-group-item">Force: {{ $item['for'] }}</li>
+        <li class="list-group-item">Agilité: {{ $item['int'] }}</li>
+        <li class="list-group-item">Intelligence: {{ $item['int'] }}</li>
+        <li class="list-group-item">PV: {{ $item['pv'] }}</li>
+      </ul>
+  
+  </div>
 
-    @if ($message = Session::get('success'))
+</div>
 
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-
-    @endif
-
- 
-
-    <table class="table table-bordered">
-
-        <tr>
-
-            <th>Nom du personnage</th>
-            <th>Descriptif</th>
-            <th>Type</th>
-        
-
-        </tr>
-
-        @foreach ($characters as $index => personnage)
-
-            <tr>
-                <td>{{ $index }}</td>
-                <td>{{ character->characterName }}</td>
-                <td>{{ character->characterDescription }}</td>
-                <td>{{ character->speciality }}</td>
-                <td>
-
-                    <form action="{{ url('character/'. $character->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-
-                        <a class="btn btn-info" href="{{ url('character/'. $character->id) }}">Voir</a>
-                        <a class="btn btn-primary" href="{{ url('character/'. $character->id .'/edit') }}">Modifier</a>
-
-                        <button type="submit" class="btn btn-danger">Supprimer</button>
-
-                    </form>
-                </td>
-
-        @endforeach
-    </table>
+@endforeach
 
 @endsection

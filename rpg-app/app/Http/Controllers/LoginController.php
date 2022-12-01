@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -29,7 +28,7 @@ class LoginController extends Controller
             'lastname'  => 'required',
             'pseudo'    => 'required|unique:users',
             'email'     => 'required|email|unique:users',
-            'password'  => ['required', 'confirmed', Password::min(8)->letters(),Password::min(8)->numbers(),Password::min(8)->symbols()],
+            'password'  => ['required',Password::min(8)->letters(),Password::min(8)->numbers(),Password::min(8)->symbols()],
         ]);
 
         $data = $request->all();
@@ -39,7 +38,7 @@ class LoginController extends Controller
             'lastname'   =>  $data['lastname'],
             'pseudo'     =>  $data['pseudo'],
             'email'      =>  $data['email'],
-            'password'   => Hash::make($data['password'])
+            'password'   =>  Hash::make($data['password'])
         ]);
 
         return redirect('login')->with('success', 'Inscription réussie, vous pouvez vous connectez');

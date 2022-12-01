@@ -82,7 +82,7 @@ class CharacterController extends Controller
     public function show($character)
     {
         $character = Character::where('user_id',Auth::user()->id)->get();
-        return view('characters.show', ['charactersList'=>$character]);
+        return view('characters.show', ['character'=>$character]);
     }
 
     /**
@@ -91,11 +91,11 @@ class CharacterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($character)
+    public function edit($id)
     {
-        $character = Character::findOrFail($character);
+        $character = Character::findOrFail($id);
 
-        return view('characters.edit', compact('character'));
+        return view('characters.edit', ['character'=>$character]);
     }
 
     /**
@@ -123,7 +123,7 @@ class CharacterController extends Controller
 
         $character->update();
 
-        return redirect('characters.update')->with('success', 'Le personnage a été modifié avec succès');
+        return redirect('characters.update',['character' => $character])->with('success', 'Le personnage a été modifié avec succès');
     }
 
     /**
@@ -136,6 +136,6 @@ class CharacterController extends Controller
     {
         $character = Character::findOrFail($id);
         $character->delete();
-        return redirect('characters.destroy')->with('success', 'Personnage supprimé avec succès');
+        return redirect('characters.destroy',['character'=>$character])->with('success', 'Personnage supprimé avec succès');
     }
 }

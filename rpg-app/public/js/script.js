@@ -1,32 +1,8 @@
-function myFunction() {
-    document.querySelector("change").innerHTML = "";
+const randomInt = (min,max) => 
+  max === undefined ? Math.floor(Math.random()*min)
+  : min + Math.floor(Math.random()*(max - min + 1))
 
-    buttonChange.addEventListener('click',()=>{
+document.getElementById("randomStat").addEventListener("click",e => {
+  document.getElementById("stat").innerHTML = randomInt(0,14)
+})
 
-          
-    })
-}
-
-function statistic(min, max) {
-    min = Math.ceil(0);
-    max = Math.floor(14);
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-function statistic(min, max) {
-    min = Math.ceil(20);
-    max = Math.floor(50);
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-function modifier(min, max, minPv,maxPv)
-{
-    document.querySelector("change").innerHTML = "";
-
-    min = Math.ceil(0);
-    max = Math.floor(14);
-    minPv = Math.ceil(20);
-    maxPv = Math.floor(50);
-
-    document.getElementById('statistic',).value = Math.floor(Math.random() * (max - min + 1) + min);
-    document.getElementById('statisticPv').value = Math.floor(Math.random() * (maxPv - minPv + 1) + minPv);
-}
