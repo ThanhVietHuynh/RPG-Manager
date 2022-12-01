@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Group;
+use App\Models\Character;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GroupController extends Controller
 {
@@ -13,7 +15,8 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        $groups = Group::all();
+        return view('groups.index');
     }
 
     /**
@@ -23,7 +26,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('groups.create');
     }
 
     /**
@@ -34,7 +37,21 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'group_name'=>['required'],
+            'group_description'=>'required',
+            'character_name'=>'required',
+        ]);
+        
+
+        $group = new Group([
+            'group_name' => $request->get('group_name'),
+            'group_description' => $request->get('group_description'),
+            'character_name' => $request->get('character_name'),
+        ]);
+
+            $group->save();
+            return redirect('groups/show')->with('success', 'Le groupe a été créé avec succès');
     }
 
     /**
@@ -43,9 +60,10 @@ class GroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($group)
     {
-        //
+        $group= Group::where('user_id',Auth::user()->id)->get();
+        return view('groups.show', ['group'=>$group]);
     }
 
     /**
@@ -56,7 +74,9 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        //
+        $group = Group::findOrFail($id);
+
+        return view('groups.edit', ['group'=>$group]);
     }
 
     /**
@@ -68,7 +88,21 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'group_name'=>['required'],
+            'group_description'=>'required',
+            'character_name'=>'required',
+        ]);
+
+        $group = new Group([
+            'group_name' => $request->get('group_name'),
+            'group_description' => $request->get('group_description'),
+            'character_name' => $request->get('character_name'),
+        ]);
+
+        $group->update();
+
+        return redirect('groups.update',['group' => $group])->with('success', 'Le groupe a été modifié avec succès');
     }
 
     /**
@@ -79,6 +113,8 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $group = Group::findOrFail($id);
+        $group->delete();
+        return redirect('groups.destroy',['group'=>$group])->with('success', 'Le groupe a été supprimé');
     }
 }
