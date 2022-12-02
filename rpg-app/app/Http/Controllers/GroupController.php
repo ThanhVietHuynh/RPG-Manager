@@ -26,7 +26,10 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view('groups.create');
+        $perso= Character::all();
+        return view('groups.create',['perso'=>$perso]);
+        // return view('groups.create');
+       
     }
 
     /**
@@ -40,6 +43,7 @@ class GroupController extends Controller
         $request->validate([
             'group_name'=>['required'],
             'group_description'=>'required',
+            'number_place'=>'required',
             'character_name'=>'required',
         ]);
         
@@ -47,7 +51,9 @@ class GroupController extends Controller
         $group = new Group([
             'group_name' => $request->get('group_name'),
             'group_description' => $request->get('group_description'),
+            'number_place' => $request->get('number_place'),
             'character_name' => $request->get('character_name'),
+            'author_id'=>Auth::user()->id,
         ]);
 
             $group->save();
@@ -60,10 +66,11 @@ class GroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($group)
+    public function show()
     {
-        $group= Group::where('user_id',Auth::user()->id)->get();
-        return view('groups.show', ['group'=>$group]);
+        $group= Group::where('author_id',Auth::user()->id)->get();
+        // $perso= Character::all();
+        // return view('groups.create', ['group'=>$group],['perso'=>$perso]);
     }
 
     /**
