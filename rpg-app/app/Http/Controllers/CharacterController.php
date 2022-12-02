@@ -79,10 +79,10 @@ class CharacterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($character)
+    public function show($characterUser)
     {
-        $character = Character::where('user_id',Auth::user()->id)->get();
-        return view('characters.show', ['character'=>$character]);
+        $characterUser = Character::where('user_id',Auth::user()->id)->get();
+        return view('characters.show', ['characterUser' => $characterUser]);
     }
 
     /**
@@ -113,28 +113,16 @@ class CharacterController extends Controller
             'character_name'=>'required|string',
             'character_description'=>'required|string',
             'speciality'=>'required|string',
-            'mag'=>'required|numeric',
-            'for'=>'required|numeric',
-            'agi'=>'required|numeric',
-            'int'=>'required|numeric',
-
         ]);
 
         $character = Character::findOrFail($id);
         $character->character_name = $request->get('character_name');
         $character->character_description = $request->get('character_description');
         $character->speciality = $request->get('speciality');
-        $character->mag = $request->get('mag');
-        $character->for = $request->get('for');
-        $character->agi = $request->get('agi');
-        $character->int = $request->get('int');
         
         $character->save();
 
-
-
         return redirect('characters/show');
-
     }
 
     /**
@@ -149,6 +137,5 @@ class CharacterController extends Controller
         $character->delete();
 
         return redirect('characters/show');
-   
     }
 }

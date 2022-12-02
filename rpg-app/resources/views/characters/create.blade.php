@@ -9,6 +9,9 @@
         <div class="card">
         <div class="card-header">Ajouter un personnage</div>
         <div class="card-body">
+            <div class="form-group mb-3">
+                <button type="button" class="btn btn-outline-info" onclick="changeStat()">Changer de statistique</button>
+            </div>
             <form action="{{route('characters.store')}}" method="POST">
                 @csrf
                 <div class="form-group mb-3">
@@ -83,7 +86,6 @@
                     <button type="submit" class="btn btn-dark btn-block">Valider Personnage</button>
                 </div>
             </form>
-            <button type="button" class="btn btn-outline-info" onclick="changeStat()">Changer de statistique</button>
         </div>
     </div>
 </div>

@@ -3,8 +3,8 @@
 
 @section('content')
  
-@foreach ($character as $item)
-<div class="cardlist">
+@foreach ($characterUser as $item)
+<div class="cardlist" style="margin: 3em;">
   <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">{{ $item['character_name'] }}</h5>

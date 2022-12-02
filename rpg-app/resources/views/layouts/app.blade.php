@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-      {{-- <?php if(Session::get('success')){ ?> --}}
+      {{-- @if(session()->has('success')) --}}
           <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
               <a class="navbar-brand">Menu</a>
@@ -22,12 +22,6 @@
                 <ul class="navbar-nav">
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('/') }}">Accueil</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Connexion</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('registration') }}">Inscription</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('characters.create') }}">Créer un personnage</a>
@@ -39,6 +33,15 @@
                     <a class="nav-link" href="{{ route('groups.create','group') }}">Créer un groupe</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="{{ route('characters.index') }}">Tout les personnages</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Connexion</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('registration') }}">Inscription</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}">Déconnexion</a>
                   </li>
                 </ul>
@@ -46,7 +49,7 @@
             </div>
           </nav>
           
-        {{-- <?php }else{ ?>
+        {{-- @else
           <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
               <a class="navbar-brand">Menu</a>
@@ -58,11 +61,12 @@
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('/') }}">Accueil</a>
                   </li>
+
                 </ul>
               </div>
             </div>
           </nav>
-       <?php } ?> --}}
+        @endif   --}}
     </header>
 
     <main>
