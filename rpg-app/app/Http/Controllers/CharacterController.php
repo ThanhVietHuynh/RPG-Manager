@@ -110,7 +110,7 @@ class CharacterController extends Controller
         
         $request->validate([
 
-            'character_name'=>'required|string',
+            'character_name'=>'required|string|unique',
             'character_description'=>'required|string',
             'speciality'=>'required|string',
             'mag'=>'required|numeric',
