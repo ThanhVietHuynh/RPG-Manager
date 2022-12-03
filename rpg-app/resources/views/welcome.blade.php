@@ -9,7 +9,6 @@
     <div class="card-img-overlay">
       <h1 class="card-title">Bienvenue sur RPG MANAGER</h1>
       <p class="card-text">A vos arme chevalier !!! Venez défendre le château de votre royaume contre le légendaire dragon</p>
-      <p class="card-text"><small>Last updated 3 mins ago</small></p>
     </div>
   </div>
 

@@ -59,7 +59,7 @@
                     <a class="nav-link" href="{{ route('characters.index') }}">Catalogue personnage</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}">Déconnexion</a>
+                    <a class="nav-link text-danger" href="{{ route('logout') }} ">Déconnexion</a>
                   </li>
                 </ul>
               </div>

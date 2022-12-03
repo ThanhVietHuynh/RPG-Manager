@@ -15,10 +15,10 @@
             <form action="{{route('characters.store')}}" method="POST">
                 @csrf
                 <div class="form-group mb-3">
-                    <input type="text" name="character_name" class="form-control" placeholder="Nom du personnage"/>
-                    @if($errors->has('character_name'))
-                        <span class="text-danger">{{ $errors->first('character_name') }}</span>
-                    @endif
+                        <input type="text" name="character_name" class="form-control" placeholder="Nom du personnage"/>
+                        @if($errors->has('character_name'))
+                            <span class="text-danger">{{ $errors->first('character_name') }}</span>
+                        @endif
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-floating">
@@ -29,6 +29,7 @@
                 <div class="form-group mb-3">
                     <div>
                         <select class="form-select" aria-label="Default select example" name="speciality" id="speciality">
+                            <option value="" disabled selected>Type de personnage</option>
                             <option value="Guerrier">Guerrier</option>
                             <option value="Mage">Mage</option>
                             <option value="Druide">Druide</option>

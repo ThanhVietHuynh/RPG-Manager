@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="row justify-content-center">
+<div class="row justify-content-center" style="margin: 5em; margin-bottom: 20em">
     <div class="col-md-4">
         <div class="card">
         <div class="card-header">Créer un groupe</div>
