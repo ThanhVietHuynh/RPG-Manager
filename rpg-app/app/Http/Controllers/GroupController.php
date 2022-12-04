@@ -66,11 +66,11 @@ class GroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($groups)
     {
-        $group= Group::where('author_id',Auth::user()->id)->get();
-        // $perso= Character::all();
-        // return view('groups.create', ['group'=>$group],['perso'=>$perso]);
+        $groups= Group::where('author_id',Auth::user()->id)->get();
+        $persos= Character::all();
+        return view('groups.show', ['groups'=>$groups],['persos'=>$persos]);
     }
 
     /**
@@ -81,9 +81,9 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        $group = Group::findOrFail($id);
+        $groups = Group::findOrFail($id);
 
-        return view('groups.edit', ['group'=>$group]);
+        return view('groups.edit', ['group'=>$groups]);
     }
 
     /**
@@ -96,20 +96,22 @@ class GroupController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'group_name'=>['required'],
-            'group_description'=>'required',
+            'group_name'=>['required|string'],
+            'group_description'=>'required|string',
+            'number_place' => 'required|numeric',
             'character_name'=>'required',
         ]);
 
-        $group = new Group([
-            'group_name' => $request->get('group_name'),
-            'group_description' => $request->get('group_description'),
-            'character_name' => $request->get('character_name'),
-        ]);
+        $groups = Group::findOrFail($id);
+        $groups->character_name = $request->get('character_name');
+        $groups->group_description = $request->get('character_description');
+        $groups->number_place = $request->get('number_place');
+        $groups->character_name = $request->get('speciality');
+        $persos= Character::all();
 
-        $group->update();
+        $groups->save();
 
-        return redirect('groups.update',['group' => $group])->with('success', 'Le groupe a été modifié avec succès');
+        return redirect('groups/show',['groups' => $groups],['persos'=>$persos])->with('success', 'Le groupe a été modifié avec succès');
     }
 
     /**
@@ -122,6 +124,6 @@ class GroupController extends Controller
     {
         $group = Group::findOrFail($id);
         $group->delete();
-        return redirect('groups.destroy',['group'=>$group])->with('success', 'Le groupe a été supprimé');
+        return redirect('group/show',['group'=>$group])->with('success', 'Le groupe a été supprimé');
     }
 }

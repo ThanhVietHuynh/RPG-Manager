@@ -56,6 +56,9 @@
                     <a class="nav-link" href="{{ route('groups.create','group') }}">Créer un groupe</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="{{ route('groups.show','group') }}">Groupe</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="{{ route('characters.index') }}">Catalogue personnage</a>
                   </li>
                   <li class="nav-item">
