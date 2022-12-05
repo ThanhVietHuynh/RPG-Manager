@@ -12,6 +12,10 @@
             <div class="form-group mb-3">
                 <button type="button" class="btn btn-outline-info" onclick="changeStat()">Changer de statistique</button>
             </div>
+            <div class="form-group mb-3">
+                <button type="button" class="btn btn-outline-info" onclick="plusStat();this.onclick=null">Rajouter statistique</button>
+                <p>Augmenter les stats 1 fois seulement </p>
+            </div>
             <form action="{{route('characters.store')}}" method="POST">
                 @csrf
                 <div class="form-group mb-3">
