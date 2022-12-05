@@ -7,7 +7,7 @@
 <div class="row justify-content-center" style="margin: 5em;">
     <div class="col-md-4">
         <div class="card">
-        <div class="card-header">Ajouter un personnage</div>
+        <div class="card-header">Créer un personnage</div>
         <div class="card-body">
             <div class="form-group mb-3">
                 <button type="button" class="btn btn-outline-info" onclick="changeStat()">Changer de statistique</button>
