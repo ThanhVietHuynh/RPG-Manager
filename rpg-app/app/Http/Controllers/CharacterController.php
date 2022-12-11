@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Character;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -137,5 +138,16 @@ class CharacterController extends Controller
         $character->delete();
 
         return redirect('characters/show')->with('success', 'Personnage supprimé avec succès');
+    }
+
+    public function filtre($id)
+    {
+        $characters = Character::all();
+        $filtered = $characters->where('speciality','Mage');
+
+        $filtered->all();
+
+        dd($filtered);
+
     }
 }

@@ -4,9 +4,10 @@
 
 @section('content')
 
+@section('img','background-character')
 
-<div class="row justify-content-center" style="margin: 5em;">
-	<div class="col-md-4">
+<div class="row justify-content-center"">
+	<div class="col-md-4" style="margin: 5em;">
 		<div class="card">
 			<div class="card-header">Modifier votre personnage</div>
 			<div class="card-body">

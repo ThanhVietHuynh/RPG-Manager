@@ -2,19 +2,13 @@
 
 @section('title','Connexion')
 
+@section('img','background-connexion')
+
 @section('content')
 
-@if($message = Session::get('success'))
-
-<div class="alert alert-info">
-{{ $message }}
-</div>
-
-@endif
-
-<div class="row justify-content-center" style="margin: 10em; margin-bottom:16em">
+<div class="row justify-content-center" style="margin-bottom:16em">
 	<div class="col-md-4">
-		<div class="card">
+		<div class="card" style="margin-top: 10em;">
 			<div class="card-header">Formulaire de connexion</div>
 			<div class="card-body">
 				<form action="{{ route('sample.validate_login') }}" method="post">

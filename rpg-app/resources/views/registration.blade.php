@@ -2,10 +2,12 @@
 
 @section('title','Inscription')
 
+@section('img','background-connexion')
+
 @section('content')
 
-<div class="row justify-content-center" style="margin: 5em;margin-bottom:11em">
-	<div class="col-md-4">
+<div class="row justify-content-center" style="margin-bottom:11em">
+	<div class="col-md-4" style="margin-top: 10em;">
 		<div class="card">
 		<div class="card-header">Formulaire d'inscription</div>
 		<div class="card-body">

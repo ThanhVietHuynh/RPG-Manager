@@ -2,6 +2,8 @@
 
 @section('title','Groupes')
 
+@section('img','background-group')
+
 @section('content')
 
 @foreach ($groups as $group)

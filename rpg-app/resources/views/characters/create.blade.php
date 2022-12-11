@@ -2,10 +2,12 @@
 
 @section('title','Création personnage')
 
+@section('img','background-character')
+
 @section('content')
 
-<div class="row justify-content-center" style="margin: 5em;">
-    <div class="col-md-4">
+<div class="row justify-content-center">
+    <div class="col-md-4"  style="margin: 5em;">
         <div class="card">
         <div class="card-header">Créer un personnage</div>
         <div class="card-body">
@@ -48,45 +50,30 @@
                         <input type="number" class="form-control" id="mag" name="mag" readonly value={{$mag}}>
                         <label for="mag">Magie</label>
                     </div>
-                    @if($errors->has('mag'))
-                        <span class="text-danger">{{ $errors->first('mag') }}</span>
-                    @endif
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control" id="for" name="for" readonly value={{$for}}>
                         <label for="for">Force</label>
                     </div>
-                    @if($errors->has('mag'))
-                        <span class="text-danger">{{ $errors->first('for') }}</span>
-                    @endif
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control" id="agi" name="agi" readonly value={{$agi}}>
                         <label for="agi">Agilité</label>
                     </div>
-                    @if($errors->has('mag'))
-                        <span class="text-danger">{{ $errors->first('agi') }}</span>
-                    @endif
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control" id="int" name="int" readonly value={{$int}}>
                         <label for="int">Intelligence</label>
                     </div>
-                    @if($errors->has('mag'))
-                        <span class="text-danger">{{ $errors->first('int') }}</span>
-                    @endif
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control" id="pv" name="pv" readonly value={{$pv}}>
                         <label for="pv">PV</label>
                     </div>
-                    @if($errors->has('mag'))
-                        <span class="text-danger">{{ $errors->first('pv') }}</span>
-                    @endif
                 </div>
                     <button type="submit" class="btn btn-dark btn-block">Valider Personnage</button>
                 </div>
@@ -95,10 +82,4 @@
     </div>
 </div>
 
-
-    
-
-
-    
-
-@endsection
+@endsection('content')

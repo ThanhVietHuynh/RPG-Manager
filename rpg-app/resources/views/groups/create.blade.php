@@ -2,10 +2,12 @@
 
 @section('title','Création personnage')
 
+@section('img','background-group')
+
 @section('content')
 
-<div class="row justify-content-center" style="margin: 5em; margin-bottom: 20em">
-    <div class="col-md-4">
+<div class="row justify-content-center">
+    <div class="col-md-4"  style="margin: 5em; margin-bottom: 10em">
         <div class="card">
         <div class="card-header">Créer un groupe</div>
         <div class="card-body">

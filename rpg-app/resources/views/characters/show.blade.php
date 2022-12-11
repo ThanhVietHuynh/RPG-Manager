@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('img','background-character')
 
 @section('content')
 

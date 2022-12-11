@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('/');
 
-Route::post('/characters/{id}',[CharacterController::class,'storeFiltre'])->name('characters.storeFiltre');
+Route::get('/characters/{id}',[CharacterController::class,'filtre'])->name('characters.filtre');
 
 Route::controller(LoginController::class)->group(function(){
     

@@ -2,6 +2,8 @@
 
 @section('title','Création personnage')
 
+@section('img','background-group')
+
 @section('content')
 <div class="container-image">
 
