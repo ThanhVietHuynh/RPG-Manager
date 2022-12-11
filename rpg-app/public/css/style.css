@@ -33,10 +33,12 @@ footer{
 
 .background-character{
   background-image: url(https://s1.1zoom.me/b5050/316/377696-sepik_1920x1080.jpg);
+  background-size: contain;
   width: 100%;
 }
 .background-group{
   background-image: url(https://images5.alphacoders.com/979/979758.jpg);
+  background-size: contain;
   width: 100%;
 }
 .background-welcome{
