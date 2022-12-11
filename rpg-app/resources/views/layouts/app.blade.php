@@ -80,6 +80,12 @@
             </div>
         @endif
 
+        @if($message = Session::get('success'))
+          <div class="alert alert-info">
+            {{ $message }}
+          </div>
+        @endif
+
         @yield('content','Erreur pas de contenu retourné')
     </main>
 

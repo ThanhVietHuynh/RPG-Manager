@@ -110,7 +110,7 @@ class CharacterController extends Controller
         
         $request->validate([
 
-            'character_name'=>'required|string|unique',
+            'character_name'=>'required|string',
             'character_description'=>'required|string',
             'speciality'=>'required|string',
         ]);
@@ -122,7 +122,7 @@ class CharacterController extends Controller
         
         $character->save();
 
-        return redirect('characters/show');
+        return redirect('characters/show')->with('success', 'Personnage modifier avec succès');
     }
 
     /**
@@ -136,6 +136,6 @@ class CharacterController extends Controller
         $character = Character::findOrFail($id);
         $character->delete();
 
-        return redirect('characters/show');
+        return redirect('characters/show')->with('success', 'Personnage supprimé avec succès');
     }
 }

@@ -3,6 +3,7 @@
 @section('title','Groupes')
 
 @section('content')
+
 @foreach ($groups as $group)
     <div class="row" style="margin-left: 12em">
         <div class="col-sm-3" style="margin: 1em; width:50%">
@@ -38,6 +39,7 @@
             </tbody>
             @endforeach
           </table>
+
           <a href="{{ route('groups.edit', $group['id']) }}" class="btn btn-primary" style="width: 100%; margin-bottom:1em">Modifier Groupe</a>
 
           <form action="{{ route('groups.destroy',$group['id']) }}" method="POST">
@@ -50,6 +52,5 @@
     </div>
 
 @endforeach
-
 
 @endsection
