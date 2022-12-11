@@ -14,7 +14,7 @@
       <a class="nav-link" href="#">Guerrier</a>
     </li>
     <li class="nav-item" style="margin: 1em">
-      <form action="{{ route('characters.filtre', $characters) }}" method="get">
+      <form action="{{ route('characters.filtre') }}" method="get">
         <button type="submit" class="btn btn-secondary">Mage</button>
      </form>
      </li>

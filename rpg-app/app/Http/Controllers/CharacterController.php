@@ -140,14 +140,12 @@ class CharacterController extends Controller
         return redirect('characters/show')->with('success', 'Personnage supprimé avec succès');
     }
 
-    public function filtre($id)
+    public function filtre()
     {
         $characters = Character::all();
         $filtered = $characters->where('speciality','Mage');
 
         $filtered->all();
-
-        dd($filtered);
 
     }
 }

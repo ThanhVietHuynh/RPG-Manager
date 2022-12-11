@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('/');
 
-Route::get('/characters/{id}',[CharacterController::class,'filtre'])->name('characters.filtre');
+Route::get('/characters/filtre',[CharacterController::class,'filtre'])->name('characters.filtre');
 
 Route::controller(LoginController::class)->group(function(){
     
